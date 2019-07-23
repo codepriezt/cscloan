@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>live voting app</title>
+        <link rel="stylesheet" type="type\css"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    </head>
+    <body>
+         <div class="container">
+             <br />
+             <br />
+             <br />
+             <h2 align="center"> Loan calculator  </h2>
+             <h4> Apply for your loan application
+             </h4>
+             <div class="row">
+                 <div class="col-md-6">
+                     <form method = "POST" id="form" action=>
+                         <label for="principal">Enter a loan amount:</label>
+                         <input type = text class = "principal" value = "" id ="principal" placeholder = "eg 5000" required>
+                         <br>
+                         <br>
+                         <br>
+                         <label for ="duration">How long do you intend to Borrow:</label>
+                         <input type=text class="duration" value="" id="duration"
+                             placeholder="eg 2month" required>
+                                
+                     </form>
+                     </div>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+
+                     <div>
+                         <label for="Output"> Loan Return:</label>
+                         <input type = "text" class="" name="output"  value=""  id="output"> 
+                     </div>
+                     </div>
+                     </div>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js""></script>
+
+    <script> 
+     document.getElementById("principal").addEventListener("keyup", myFunction)
+     document.getElementById("duration").addEventListener("keyup", myFunction)
+       function myFunction(){
+            var x = document.getElementById('principal')
+            var d = document.getElementById('duration')
+            var r = 0.04 * d.value
+            var t = x.value * r 
+            let l = +t + +x.value 
+            var out = document.getElementById('output')
+            out.value = l
+            
+       }
+               
+
+    </script>
+
+</body>
+</html>
