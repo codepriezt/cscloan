@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<?php include ('tconnect.php');?>
 
 <head>
     <title>live voting app</title>
@@ -65,7 +66,6 @@
 
             </form>
             <?php
-            include('tconnect.php');
 
             if (isset($_POST['oj'])) {
                 $vote_oj = "update test set oj=oj+1";
