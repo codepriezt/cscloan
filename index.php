@@ -4,6 +4,9 @@
 <head>
     <title>live voting app</title>
     <link rel="stylesheet" type="type\css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
 </head>
@@ -78,52 +81,51 @@
 
 </html>
 <script>
-// function pass_data()
+    // function pass_data()
 
-$(document).ready(function(){
+    $(document).ready(function() {
 
-                fetch_vote_data()
-                    function fetch_vote_data(){
+        fetch_vote_data()
 
-                    $.ajax({
-                    url:"vote_data.php",
-                    method:"POST",
-                    success:function(data)
-                    {
-                       $('#vote_result').html(data);
-                    }
-                })
-            }
+        function fetch_vote_data() {
 
-                $('#vote_button').on('submit',function(event){
-                event.preventDefault();
-                var vote_option = '';
-                $('.vote_option').each(function(){
-                if($(this).prop("checked")){
+            $.ajax({
+                url: "vote_data.php",
+                method: "POST",
+                success: function(data) {
+                    $('#vote_result').html(data);
+                }
+            })
+        }
+
+        $('#vote_button').on('submit', function(event) {
+            event.preventDefault();
+            var vote_option = '';
+            $('.vote_option').each(function() {
+                if ($(this).prop("checked")) {
                     vote_option = $(this).val()
                 }
-                });
+            });
 
-                if(vote_option != ''){
-                $('#vote_button').attr('disabled' ,'disabled')
-                {
+            if (vote_option != '') {
+                $('#vote_button').attr('disabled', 'disabled') {
                     var form_data = $(this).serialize();
                     $.ajax({
-                        method:'post',
-                        data:'form_data',
-                        url:'vote.php',
-                        success:function(data){
-                        $('#vote_form')[0].reset()
-                        $('#vote_button').attr('disabled' ,false)
-                        fetch_vote_data();
-                        alert ("vote submitted succesfuly ");
+                        method: 'post',
+                        data: 'form_data',
+                        url: 'vote.php',
+                        success: function(data) {
+                            $('#vote_form')[0].reset()
+                            $('#vote_button').attr('disabled', false)
+                            fetch_vote_data();
+                            alert("vote submitted succesfuly ");
                         }
                     });
                 }
             }
-        });   
-});  
- </script> 
+        });
+    });
+</script>
 
 
 <!-- fetch data from mysql and display in the sreen here--

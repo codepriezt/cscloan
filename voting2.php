@@ -23,7 +23,7 @@
                     <div>
                         <label>
                             <h4>
-                                Vote for O J : <input type="submit" name="oj" value="oj" class="btn btn-primary">
+                                Vote for O J : <input type="submit" name="oj" value="oj" class="btn btn-primary"/>
 
                             </h4>
                         </label>
@@ -32,7 +32,7 @@
                     <div>
                         <label>
                             <h4>
-                                Vote for Bamz : <input type="submit" name="bams" value="bams" class="btn btn-primary">
+                                Vote for Bamz : <input type="submit" name="bams" value="bams" class="btn btn-primary"/>
                             </h4>
                         </label>
 
@@ -41,7 +41,7 @@
                     <div>
                         <label>
                             <h4>
-                                Vote for Ebuka : <input type="submit" name="ebuka" value="ebuka" class="btn btn-primary">
+                                Vote for Ebuka : <input type="submit" name="ebuka" value="ebuka" class="btn btn-primary"/>
                             </h4>
                         </label>
 
@@ -49,7 +49,7 @@
                     <div>
                         <label>
                             <h4>
-                                Vote for ziks : <input type="submit" name="ziks" value="ziks" class="btn btn-primary">
+                                Vote for ziks : <input type="submit" name="ziks" value="ziks" class="btn btn-primary"/>
                             </h4>
                         </label>
                     </div>
@@ -68,17 +68,17 @@
             include('tconnect.php');
 
             if (isset($_POST['oj'])) {
-                $vote_oj = "update demo set oj=oj+1";
+                $vote_oj = "update test set oj=oj+1";
                 $run_oj = mysqli_query($db, $vote_oj);
 
                 if ($run_oj) {
                     echo "<h2 align= 'center'> Your Vote  has been casted for O j!</h2>";
-
                     echo "<h2 align ='center'><a href='voting2.php?results'>View Results</a></h2>";
                 }
-            }
+        }
+
             if (isset($_POST['bams'])) {
-                $vote_bams = "update demo set bams=bams+1";
+                $vote_bams = "update test set bams=bams+1";
                 $run_bams = mysqli_query($db, $vote_bams);
 
                 if ($run_bams) {
@@ -89,7 +89,7 @@
             }
 
             if (isset($_POST['ebuka'])) {
-                $vote_ebuka = "update demo set ebuka=ebuka+1";
+                $vote_ebuka = "update test set ebuka=ebuka+1";
                 $run_ebuka = mysqli_query($db, $vote_ebuka);
 
                 if ($run_ebuka) {
@@ -100,7 +100,7 @@
             }
 
             if (isset($_POST['ziks'])) {
-                $vote_ziks = "update demo set ziks=ziks+1";
+                $vote_ziks = "update test set ziks=ziks+1";
                 $run_ziks = mysqli_query($db, $vote_ziks);
 
                 if ($run_ziks) {
@@ -115,7 +115,7 @@
 
 
             if (isset($_GET['results'])) {
-                $get_votes = "select * from demo ";
+                $get_votes = "select * from test ";
                 $run_votes = mysqli_query($db, $get_votes);
                 $row_votes = mysqli_fetch_array($run_votes);
 
